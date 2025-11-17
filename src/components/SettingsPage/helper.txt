@@ -1,0 +1,287 @@
+import React, { useState, useEffect } from "react";
+import "../SettingsPageStyles/index.css";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import GenBatteryIcon from "../Icon-folder/GenBatteryIcon";
+import GenPidIcon from "../Icon-folder/GenPidIcon";
+import GenGeneratorIcon from "../Icon-folder/GenGeneratorIcon";
+import { timeMillisecond } from "d3";
+import IconSun from "../Icon-folder/IconSun";
+import IconMoonStars from "../Icon-folder/IconMoonStars";
+const SettingsCarousel = () => {
+
+  const nightMode = () => {
+    const divElements = document.querySelectorAll('.settings-box');
+    divElements.forEach((element) => {
+      element.style.setProperty('background-color', '#121212')
+      element.style.setProperty('color','white')
+    })
+
+  };
+  const lightMode = () => {
+    const divElements = document.querySelectorAll('.settings-box');
+    divElements.forEach((element) => {
+      element.style.setProperty('background-color', 'white')
+      element.style.setProperty('color','black')
+    })
+
+  };
+
+////////////////////////////////form state for gensettings generator ///////////////////
+
+const[safeTempSetPoint,setSafeTempSetPoint]=useState("");
+const [maxEngineTemp, setMaxEngineTemp]=useState("");
+const[fuelDivisor,setFuelDivisor]=useState("")
+
+/////////// pid gains form state ///////////
+/// NORMAL OPERATION
+const[kp,setKp]=useState("");
+const[ki,setKi]=useState("");
+const[kd,setKd]=useState("");
+
+///SAFE TEMP
+const[kpSafe,setKpSafe]=useState("");
+const[kiSafe,setKiSafe]=useState("");
+const[kdSafe,setKdSafe]=useState("");
+
+///LOW POWER
+const[kpLow,setKpLow]=useState("");
+const[kiLow,setKiLow]=useState("");
+const[kdLow,setKdLow]=useState("");
+
+
+
+
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  // Perform form submission logic here
+  console.log('Submitted:', safeTempSetPoint,maxEngineTemp,fuelDivisor, );
+  // Reset the form fields
+  setSafeTempSetPoint('');
+  setMaxEngineTemp('');
+  fuelDivisor("")
+};
+
+ 
+  return (
+    <div>
+      <div className="container-settings">
+        <div className="icon-container">
+        <IconSun className="mode-icon" id="sun-icon"onClick={lightMode}/>
+        <IconMoonStars className="mode-icon" id="moon-icon"onClick={nightMode}/>
+        </div>
+   
+        <div className="settings-box">
+          <Tabs>
+            <div>Autopilot</div>
+            <TabList>
+              <Tab>
+                <GenBatteryIcon />
+              </Tab>
+             
+
+              {/* <ComTab /> */}
+            </TabList>
+
+            <TabPanel >
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa
+            </TabPanel>
+            <TabPanel>
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa
+            </TabPanel>
+            <TabPanel>
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa
+            </TabPanel>
+          </Tabs>
+        </div>
+        {/* *********** GUI ************** */}
+        <div className="settings-box">
+          <Tabs>
+            <div>GUI</div>
+            <TabList>
+              {/* <Tab>
+                <GenBatteryIcon />
+              </Tab>
+              <Tab>
+                <GenPidIcon />
+              </Tab> */}
+              <Tab>
+                <GenGeneratorIcon />
+              </Tab>
+
+              {/* <ComTab /> */}
+            </TabList>
+
+            <TabPanel>
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa
+            </TabPanel>
+            <TabPanel>
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa
+            </TabPanel>
+            <TabPanel>
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa
+            </TabPanel>
+          </Tabs>
+        </div>
+        {/* ************** Auto pilot *************** */}
+        {/* <div className="settings-box">Generator Settings</div> */}
+        <div className="settings-box">
+          <Tabs>
+            <div>Generator Settings</div>
+            <TabList>
+              <Tab>
+                Battery
+                <GenBatteryIcon />
+              </Tab>
+              <Tab>
+                PID Gains
+                <GenPidIcon />
+              </Tab>
+              <Tab>
+                Generator
+                <GenGeneratorIcon />
+              </Tab>
+
+              {/* <ComTab /> */}
+            </TabList>
+
+            <TabPanel>
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaa
+            </TabPanel>
+            <TabPanel>
+        sssssssssssssssss
+            </TabPanel>
+            <TabPanel>
+            <h4>GPMU</h4>
+             <p className="paragraph-settings-boxes">Firmware Major:    , Firmware Minor:         , Date:        </p> 
+            {/***** FORM HANDLING AREA FOR GEN SETTINGS GENERATOR *******/ }
+            
+             <form onSubmit={handleSubmit} >
+      <label >
+        Safe Temp Setpoint:
+        <textarea className="form-box"
+        
+          type="text"
+          value={safeTempSetPoint}
+          onChange={(e) => setSafeTempSetPoint(e.target.value)}
+        />
+      </label>
+      <br />
+      <label>
+       Max Engine Generate Temp:
+        <textarea className="form-box"
+          type="text"
+          value={maxEngineTemp}
+          onChange={(e) => setMaxEngineTemp(e.target.value)}
+        />
+      </label>
+     
+    </form>
+    <h4>Engine</h4>
+    Firmware:          Date: <br></br>
+    <label>
+       Fuel Divisor:
+        <textarea className="form-box"
+          type="text"
+          value={fuelDivisor}
+          onChange={(e) => setFuelDivisor(e.target.value)}
+        />
+      </label>
+      <br />
+      <button type="submit">Submit</button>
+            </TabPanel>
+          </Tabs>
+        </div>
+      </div>
+      <div>Statistics</div>
+      <ul>
+        <li>Power Cycle:</li>
+        <li>
+          Engine Run Time:{" "}
+         
+        </li>
+        <li>
+          System Active:{" "}
+          
+        </li>
+        <li>
+          Power Consumed:{" "}
+          
+        </li>
+        <li>
+          Power Generated:{" "}
+         
+        </li>
+        <li>Total Starts:</li>
+      </ul>
+
+      <button onClick={''}>Read</button>
+      <button onClick={''}>Write</button>
+    </div>
+  );
+};
+
+export default SettingsCarousel;

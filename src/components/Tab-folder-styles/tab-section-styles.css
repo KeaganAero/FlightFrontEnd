@@ -1,0 +1,35 @@
+#logo-style {
+  position: relative;
+  left: 633px;
+  background-color: red;
+}
+
+@media only screen and (max-width: 1024px) {
+  #logo-style {
+    position: relative;
+    left: 300px;
+  }
+}
+
+.title {
+  position: relative;
+  right: 8em;
+  top: 1.3em;
+  font-style: italic;
+  font-family: "Arial", sans-serif;
+  font-size: 4em;
+  background: linear-gradient(145deg, #fac2c2, #eceaea);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(125, 1, 1, 0.8);
+  animation: shine 0.5s linear infinite;
+}
+@keyframes shine {
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}

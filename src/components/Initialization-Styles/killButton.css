@@ -1,0 +1,57 @@
+#kill-button-on {
+  box-shadow: 0px 0px 5px 5px #fdfdfd;
+
+  color: #ffffff;
+}
+
+.kill-button {
+  position: relative;
+  left: 0.5em;
+  bottom: 2.5em;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  opacity: 25%;
+  pointer-events: none;
+}
+
+#kill-title {
+  font-size: 15px;
+  color: red;
+  position: relative;
+  bottom: 15.7em;
+  left: 2em;
+  width: 100px;
+  cursor: default;
+  background-color: white;
+  font-weight: bold;
+  border: 1px solid red;
+  z-index: 1;
+}
+
+#font-icon-question-mark-kill {
+  font-size: 20px;
+  cursor: default;
+  color: white;
+  position: relative;
+  bottom: 12em;
+  right: 7.7em;
+}
+
+/********************* kill button active *******************/
+.kill-active-button {
+  position: relative;
+  left: 0.5em;
+  bottom: 5em;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#kill-active-button-on {
+  box-shadow: 0px 0px 5px 5px #ff0606, 5px 4px 5px 1px #ff0000,
+    -5px -5px 10px 5px #4d0808;
+  color: #aa0000;
+}

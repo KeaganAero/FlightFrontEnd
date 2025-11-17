@@ -1,0 +1,95 @@
+.box-container {
+  position: relative;
+  bottom: 5em;
+}
+
+/* .log-box{
+    border: 3px solid rgb(235, 0, 0);
+    width: 200px;
+    height: 190px;
+   background-color:white; 
+   border-radius: 5%;
+   text-decoration: none;
+   max-height: 400px;
+   overflow-y: scroll;
+   font-size: 10px;
+} */
+
+/* li{
+  display: block;
+  font-weight: bolder;
+  font-size: 15px;
+  color:black;
+} */
+
+#log-id {
+  color: red;
+  font-size: 12px;
+}
+
+.livestatus-container {
+  border: 3px solid rgb(235, 0, 0);
+  width: 100%;
+  position: relative;
+  top: 100px;
+  height: 250px;
+  max-height: 250px;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  font-size: 10px;
+}
+/* .grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 15px;
+  text-align: center;
+  color:black;
+}
+
+.hello {color:black;
+} */
+
+.columns {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  color: black;
+}
+
+.column {
+  flex: 33.33%;
+}
+
+.row-messages {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  color: black;
+  font-size: 20px;
+  font-weight: heavy;
+  position: relative;
+
+  height: 20px;
+}
+
+.log-title {
+  color: black;
+}
+
+#pdf-button {
+  height: 67px;
+  background-color: white;
+  border: 2px solid black;
+  position: relative;
+  top: 100px;
+}

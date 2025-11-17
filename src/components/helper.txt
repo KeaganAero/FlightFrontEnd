@@ -1,0 +1,48 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "../Initialization-Styles/powerbutton.scss";
+
+const PowerButton = () => {
+  const [toggle, setToggle] = useState("");
+
+  const form = {"name":"test",
+
+  "salary":"123",
+  
+  "age":"23"} 
+ 
+ const testing = async() => {
+
+   
+          const res = await axios.post(
+            "http://localhost:3001/find",
+            form
+          )
+          console.log(res);
+       
+       
+        
+        testing();
+    
+ }
+ 
+
+
+
+  return (
+    <div>
+
+
+<h1>Welcome to HFE test site! 👋🏾</h1>
+
+<form action="/find" method="POST">
+  <input type="text" name="searchForThis" placeholder="Search here!"/>
+  <button type="submit">Search</button>
+</form>
+      <button disabled="true"onClick={testing}>System On</button>
+      
+    </div>
+  );
+};
+
+export default PowerButton;

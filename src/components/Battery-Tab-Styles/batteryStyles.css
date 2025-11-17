@@ -1,0 +1,147 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400);
+
+ /* .flex-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10em;
+  flex-wrap: none;
+    background-color:white}  */
+/*   
+.wrapper{
+  position: relative;
+    width: 100%;
+
+padding-left: 50px;
+} */
+/* .wrapper{
+  display: flex;
+  flex-direction: column;
+} */
+
+  .true-container{
+    display: flex;
+    background-color: black;
+    flex-wrap: wrap;
+
+  }
+
+.cylinder-zero{
+    position:relative;
+   /* border: 2px solid black; */
+    /* width: 145px; */
+    height: 200px;
+}
+
+
+
+.cylinder-scale{
+    font-size: 10px;
+}
+.cylinder-top{
+    background-color:rgb(182, 182, 182);
+    border:1px solid black;
+    width: 140px;
+    height: 40px;
+  border-radius: 50%;
+  position: relative;
+  top:20px;
+  background: radial-gradient(circle at 10%, #b3aaaa, #5e5b5b 50%, #eee 75%, #333 115%);
+}
+
+.cylinder-mid{
+    background: radial-gradient(circle at 90%,  #eee 5%, #333 90%);
+    background-color:rgb(156, 155, 155);
+    border:1px solid black;
+    width: 140px;
+    height: 120px;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+  padding-top: 20px;
+  
+}
+
+.cylinder-bottom{
+    background-color:rgb(150, 150, 150);
+    border:1px solid black;
+    width: 140px;
+    height: 25px;
+    border-top-right-radius: 40%;
+    border-top-left-radius: 40%;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background: radial-gradient(#e66465, #9198e5);
+  position: relative;
+  bottom: 24px;
+
+}
+
+
+
+
+.liquid-voltage-0{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--height);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--color);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--color) 5%, #333 90%);
+ 
+}
+
+.cylinder-value{
+  position: relative;
+  top:20px;
+}
+
+
+
+
+.cylinder-top-one{
+  background-color:rgb(182, 182, 182);
+  border:1px solid black;
+  width: 140px;
+  height: 40px;
+border-radius: 50%;
+position: relative;
+top:20px;
+background: radial-gradient(circle at 10%, #b3aaaa, #5e5b5b 50%, #eee 75%, #333 115%);
+}
+
+.cylinder-mid-one{
+  background: radial-gradient(circle at 90%,  #eee 5%, #333 90%);
+  background-color:rgb(156, 155, 155);
+  border:1px solid black;
+  width: 140px;
+  height: 120px;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+padding-top: 20px;
+}
+
+.cylinder-bottom-one{
+  background-color:rgb(150, 150, 150);
+    border:1px solid black;
+    width: 140px;
+    height: 25px;
+    border-top-right-radius: 40%;
+    border-top-left-radius: 40%;
+  border-bottom-right-radius: 29%;
+  border-bottom-left-radius: 29%;
+  background: radial-gradient(#e66465, #9198e5);
+  position: relative;
+  bottom: 24px;
+}
+
+
+

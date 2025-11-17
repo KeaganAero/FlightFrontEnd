@@ -1,0 +1,17 @@
+.system-bar-wrapper {
+  padding: 0;
+  margin: 0;
+  transform: rotate(90deg);
+padding-top: 200px;
+
+}
+
+.test {
+display: flex;
+justify-content: center;
+width: 300px;
+left:102px;
+position: relative;
+} 
+
+

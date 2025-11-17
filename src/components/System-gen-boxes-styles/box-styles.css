@@ -1,0 +1,29 @@
+#box-1 {
+width: 10px;
+height: 10px;
+background-color: red;
+
+}
+
+#box-2 {
+width: 10px;
+height: 10px;
+background-color: #39FF14;
+}
+
+#box-3 {
+width: 10px;
+height: 10px;
+background-color: lightgray;
+}
+
+.system-boxes{
+float: right;
+font-size: 10px;
+display: flex;
+flex-direction: column;
+text-align: left;
+position:relative;
+bottom:200px;
+right: 40px;
+}

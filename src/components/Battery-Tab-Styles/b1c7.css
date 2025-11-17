@@ -1,0 +1,20 @@
+.liquid-voltage-7{
+    position: relative;
+      bottom: 24px;
+      padding-right: 50px;
+      margin-left: 0.5px;
+      /* border: 1px solid aqua; */
+      width: 139px;
+      padding-top: var(--heightSeven);
+      padding-bottom:0px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 0%;
+      border-bottom-right-radius: 0%;
+      background-color: var(--colorSeven);
+      opacity: 0.7;
+   transform:rotatex(180deg);
+   transform-origin: top;
+   background: radial-gradient(circle at 90%,  var(--colorSeven) 5%, #333 90%);
+   
+  }

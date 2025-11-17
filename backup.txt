@@ -1,0 +1,64 @@
+import React, {useState,useEffect} from 'react';
+import { PieChart } from "react-minimal-pie-chart";
+import HSBar from "react-horizontal-stacked-bar-chart";
+import axios from "axios";
+
+const SystemGen = () => {
+
+    const[systemData, setSystemData]=useState([]);
+useEffect(() => {
+    const systemPwr = async () => {
+        const res = await axios.get("http://localhost:3001");
+        const systemData = res.data;
+        setSystemData(systemData)
+        console.log(res," <-------------------system data for top gauge")
+    }
+    systemPwr()
+})
+
+    return(
+        
+        <div>
+          {systemData.map((data) => (
+
+<HSBar 
+  height={50}
+  showTextIn
+  showTextUp
+  showTextDown
+  id="new_id"
+  fontColor="rgb(50,20,100)"
+  data={[
+    
+    {
+      name: "Battery Power",
+      value: (data.systemPower/1000)-(data.genPower/1000),
+      description: "",
+      enumerable: false,
+      color: "red"
+    },
+    {
+      name: "Generator Power",
+      value: data.genPower/1000,
+      description: "",
+      enumerable: false,
+      writable: true,
+      color: "#39FF14"
+    },
+    {
+      name: "Capacity",
+      value: 50 ,
+      description: "",
+      enumerable: false,
+      color: "lightgrey"
+    }
+  ]}
+
+/>
+          ))}
+
+        </div>
+    )
+}
+
+export default SystemGen;

@@ -1,0 +1,859 @@
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import "../PlotlyGraphsStyles/plotly.css";
+import axios from "axios";
+import Plot from "react-plotly.js";
+import FormControl from "@mui/material/FormControl";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import Box from '@mui/material/Box';
+
+import FormLabel from "@mui/material/FormLabel";
+
+const BatteryGraph = () => {
+
+
+  var genVoltageColour =  <Box
+  sx={{
+    width: 300,
+    height: 300,
+    backgroundColor: 'red',
+    '&:hover': {
+      backgroundColor: 'red',
+      opacity: [0],
+    },
+  }}
+/>
+
+var systemPowerColour = <Box
+
+sx={{
+  width: 10,
+  height: 10,
+  backgroundColor: 'red',
+  '&:hover': {
+    backgroundColor: 'red',
+    opacity: [0],
+  },
+}}
+/>
+  const [plotData, setPlotData] = useState([]);
+
+  useEffect(() => {
+    const mapData = async () => {
+      const res = await axios.get("http://localhost:3002");
+      const plotData = res.data;
+      var isValid = plotData[0].hasOwnProperty("b1c0");
+      if (isValid) {
+        setPlotData(plotData);
+      }
+    };
+    mapData();
+  });
+
+  ///////////////////////////////////////////////////////////// FLAT LINE Graph that has 0 values on both axis //////////////////
+
+
+  /// SHOW LEGEND STATE //
+  const[toggleLegend,settoggleLegend]=useState(true)
+
+  ////////////////////////////// FLAT LINE GRAPH ABOVE ////////////////////////////
+
+  ///////////////////////////////////////////////////////////// USE EFFECT FOR SYSTEM POWER
+  useEffect(() => {
+    const interval = setInterval(() => {
+      plotData.map((value) =>
+        setB1c0((prev) => {
+          return {
+            showlegend: true,
+            x: [...prev.x, value.timeElapsed],
+            y: [...prev.y.slice(1), value.b1c0],
+            type: "bar",
+            mode: "lines",
+            marker: { color: "red" },
+            name: "b1c0",
+            
+          }
+      
+        })
+      );
+    }, []);
+
+    return () => {
+      clearInterval(interval);
+    };
+  });
+
+  //////////////////////////////////////////////////////// USE EFFECT FOR GEN POWER
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setgenPower((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.genPower],
+//             name: "Gen Power(kw)",
+//             showlegend: true,
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ////////////////////////////////////////////////////////////Use Effect for GEN VOLTAGE
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setgenVoltage((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.genVoltage * 100],
+//             name: "Gen Voltage(v)"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ////////////////////////////////////////////////////////////Use Effect for BATTERY VOLTAGE
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setbatteryVoltage((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.batteryVoltage * 100],
+//             name: "Bat Voltage"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ////////////////////////////////////////////////////////////Use Effect for generator current
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setgeneratorCurrent((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.genCurrent * 100],
+//             name:"Gen Current"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR STATOR TEMP
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setstatorTemp((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.statorTemp * 10],
+//             name:"Stator Temp"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR BATTERY CURRENT
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setbatterycurrentNet((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.batteryCurrentNet * 10],
+//             name: "Bat Current"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR THROTTLE
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setThrottle((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.throttle * 10],
+//             name: "Throttle"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR SETPOINT
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setSetpoint((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.setpoint * 10],
+//             name: "SetPoint"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR RPM
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setRPM((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.RPM],
+//             name: "RPM"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR FUEL CONSUMPTION
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setfuelConsumption((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.fuelConsumption],
+//             name: "Fuel Consumption"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR MAP
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setMAP((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.MAP * 100],
+//             name: "MAP"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR FUEL PRESSURE
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setfuelPressure((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.fuelPressure],
+//             name:"Fuel Pressure"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR rectifier temperature
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setrectifierTemp((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.rectifierTemp * 10],
+//             name:"Rectifier Temp"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR regulator temperature
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setregulatorTemp((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.regulatorTemp * 10],
+//             name:"Regulator Temp"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR CHT
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setCHT((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.CHT * 10],
+//             name: "CHT"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+//   ///////////////////////////////////////////////////////////// USE EFFECT FOR MAT
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       plotData.map((value) =>
+//         setMAT((prev) => {
+//           return {
+//             x: [...prev.x, value.timeElapsed],
+//             y: [...prev.y.slice(1), value.MAT * 10],
+//             name: "MAT"
+//           };
+//         })
+//       );
+//     }, []);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   });
+
+  ////////////////////////////////////////////////// DATA FOR DYNAMIC SCOPE RANGE
+  const countZero = 1000;
+  const countOne = 100;
+  const countTwo = 100;
+  const countThree = 100;
+  const countFour = 100;
+  ////////////////////////////////////////////////////// TEST TRACE ALGORITHM
+//   const startingTest = Array(countZero)
+//     .fill(1)
+//     .map((_, i) => i);
+
+  ///////////////////////////////////////////////////// Trace Zero algorithm
+  const startingNumbersZero = Array(countZero)
+    .fill(1)
+    .map((_, i) => i);
+
+//   ////////////////////////////////////////////////////// Trace One algorithm
+//   const startingNumbersOne = Array(countOne)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace Two algorithm
+//   const startingNumbersTwo = Array(countTwo)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace Three algorithm
+//   const startingNumbersbatteryVoltage = Array(countThree)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace Four algorithm
+//   const startingNumbersgeneratorCurrent = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace Five algorithm
+//   const startingNumbersstatorTemp = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace six algorithm
+//   const startingNumbersbatteryCurrent = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace seven algorithm
+//   const startingNumbersthrottle = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace eight algorithm
+//   const startingNumberssetpoint = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace nine algorithm
+//   const startingNumbersRPM = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace ten algorithm
+//   const startingNumbersfuelconsumption = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace Eleven algorithm
+//   const startingNumbersMAP = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace Twelve algorithm
+//   const startingNumbersFuelPressure = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace Thirteen algorithm
+//   const startingNumbersrectifierTemp = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace fourteen algorithm
+//   const startingNumbersregulatorTemp = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace fifteen algorithm
+//   const startingNumbersCHT = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+//   /////////////////////////////////////////////////// Trace fifteen algorithm
+//   const startingNumbersMAT = Array(countFour)
+//     .fill(1)
+//     .map((_, i) => i);
+
+  //////////////////////////////////////////////////// STATE FOR ZERO PLOT GRAPH
+
+//   const [flatTrace, setflatTrace] = useState({
+//     x: startingTest,
+//     y: startingTest,
+//   });
+  ///////////////////////////////////////////////////// State for system power
+
+  const [b1c0, setB1c0] = useState({
+    x: startingNumbersZero,
+    y: startingNumbersZero,
+  });
+
+  ///////////////////////////////////////////////////// State for gen power
+//   const [genPower, setgenPower] = useState({
+//     x: startingNumbersOne,
+//     y: startingNumbersOne,
+//   });
+
+//   ///////////////////////////////////////////////////// State for gen voltage
+//   const [genVoltage, setgenVoltage] = useState({
+//     x: startingNumbersTwo,
+//     y: startingNumbersTwo,
+//   });
+
+//   ///////////////////////////////////////////////////// State for battery voltage
+//   const [batteryVoltage, setbatteryVoltage] = useState({
+//     x: startingNumbersbatteryVoltage,
+//     y: startingNumbersbatteryVoltage,
+//   });
+
+//   ///////////////////////////////////////////////////// State for generator Current
+//   const [generatorCurrent, setgeneratorCurrent] = useState({
+//     x: startingNumbersgeneratorCurrent,
+//     y: startingNumbersgeneratorCurrent,
+//   });
+
+//   ///////////////////////////////////////////////////// State for stator temp
+//   const [statorTemp, setstatorTemp] = useState({
+//     x: startingNumbersstatorTemp,
+//     y: startingNumbersstatorTemp,
+//   });
+
+//   ///////////////////////////////////////////////////// State for Battery current
+//   const [batterycurrentNet, setbatterycurrentNet] = useState({
+//     x: startingNumbersbatteryCurrent,
+//     y: startingNumbersbatteryCurrent,
+//   });
+
+//   ///////////////////////////////////////////////////// State for throttle
+//   const [throttle, setThrottle] = useState({
+//     x: startingNumbersthrottle,
+//     y: startingNumbersthrottle,
+//   });
+
+//   ///////////////////////////////////////////////////// State for setpoint
+//   const [setpoint, setSetpoint] = useState({
+//     x: startingNumberssetpoint,
+//     y: startingNumberssetpoint,
+//   });
+
+//   ///////////////////////////////////////////////////// State for RPM
+//   const [RPM, setRPM] = useState({
+//     x: startingNumbersRPM,
+//     y: startingNumbersRPM,
+//   });
+
+//   ///////////////////////////////////////////////////// State for FUEL CONSUMPTION
+//   const [fuelConsumption, setfuelConsumption] = useState({
+//     x: startingNumbersfuelconsumption,
+//     y: startingNumbersfuelconsumption,
+//   });
+
+//   ///////////////////////////////////////////////////// State for MAP
+//   const [MAP, setMAP] = useState({
+//     x: startingNumbersMAP,
+//     y: startingNumbersMAP,
+//   });
+
+//   ///////////////////////////////////////////////////// State for FUEL PRESSURE
+//   const [fuelPressure, setfuelPressure] = useState({
+//     x: startingNumbersFuelPressure,
+//     y: startingNumbersFuelPressure,
+//   });
+
+//   ///////////////////////////////////////////////////// State for rectifier temp
+//   const [rectifierTemp, setrectifierTemp] = useState({
+//     x: startingNumbersrectifierTemp,
+//     y: startingNumbersrectifierTemp,
+//   });
+
+//   ///////////////////////////////////////////////////// State for regulator temp
+//   const [regulatorTemp, setregulatorTemp] = useState({
+//     x: startingNumbersregulatorTemp,
+//     y: startingNumbersregulatorTemp,
+//   });
+
+//   ///////////////////////////////////////////////////// State foR CHT temp
+//   const [CHT, setCHT] = useState({
+//     x: startingNumbersCHT,
+//     y: startingNumbersCHT,
+//   });
+
+//   ///////////////////////////////////////////////////// State foR MAT temp
+//   const [MAT, setMAT] = useState({
+//     x: startingNumbersMAT,
+//     y: startingNumbersMAT,
+//   });
+
+  // state for changing plot points boolean
+
+  const [genpowerChange, setgenpowerChange] = useState(false);
+  const [systempowerChange, setsystempowerChange] = useState(false);
+  const [genvoltageChange, setgenvoltageChange] = useState(false);
+  const [batteryvoltageChange, setbatteryvoltageChange] = useState(false);
+  const [generatorcurrentChange, setgeneratorcurrentChange] = useState(false);
+  const [statortempChange, setstatortempChange] = useState(false);
+  const [batterycurrentChange, setbatterycurrentChange] = useState(false);
+  const [throttleChange, setthrottleChange] = useState(false);
+  const [setpointChange, setSetpointChange] = useState(false);
+  const [RPMChange, setRPMChange] = useState(false);
+  const [fuelconsumptionChange, setfuelconsumptionChange] = useState(false);
+  const [mapChange, setmapChange] = useState(false);
+  const [fuelPressureChange, setfuelPressureChange] = useState(false);
+  const [rectifierTempChange, setrectifierTempChange] = useState(false);
+  const [regulatorTempChange, setregulatorTempChange] = useState(false);
+  const [chtChange, setchtChange] = useState(false);
+  const [matChange, setmatChange] = useState(false);
+
+  /////////////// individual states for  load screen/page refresh state  //////////////
+
+  const [systempowLoad, setsystempowLoad] = useState(true);
+  const [genpowLoad, setgenpowLoad] = useState(true);
+  const [genvoltageLoad, setgenvoltageLoad] = useState(true);
+  const [batteryvoltageLoad, setbatteryvoltageLoad] = useState(true);
+  const [gencurrentLoad, setgencurrentLoad] = useState(true);
+  const [batterycurrentLoad, setbatterycurrentLoad] = useState(true);
+  const [throttleLoad, setthrottleLoad] = useState(true);
+  const [setpointLoad, setsetpointLoad] = useState(true);
+  const [rpmLoad, setrpmLoad] = useState(true);
+  const [fuelconsumptionLoad, setfuelconsumptionLoad] = useState(true);
+  const [mapLoad, setmapLoad] = useState(true);
+  const [fuelpressureLoad, setfuelpressureLoad] = useState(true);
+  const [rectifiertempLoad, setrectifiertempLoad] = useState(true);
+  const [regulatortempLoad, setregulatortempLoad] = useState(true);
+  const [statortempLoad, setstatortempLoad] = useState(true);
+  const [chtLoad, setchtLoad] = useState(true);
+  const [matLoad, setmatLoad] = useState(true);
+
+  ////// PAGE LOAD FUNCTION: SETS ALL PLOTS ON GRAPH TO ZERO ON PAGE LOAD(INVISIBLE)
+  // useLayoutEffect(() => {
+  //   const onPageLoad = () => {
+  //     if (
+  //       systempowLoad === true &&
+  //       genpowLoad === true &&
+  //       genvoltageLoad === true &&
+  //       batteryvoltageLoad === true &&
+  //       gencurrentLoad === true &&
+  //       batterycurrentLoad === true &&
+  //       throttleLoad === true &&
+  //       setpointLoad === true &&
+  //       rpmLoad === true &&
+  //       fuelconsumptionLoad === true &&
+  //       mapLoad === true &&
+  //       fuelpressureLoad === true &&
+  //       rectifiertempLoad === true &&
+  //       regulatortempLoad === true &&
+  //       statortempLoad === true &&
+  //       chtLoad === true &&
+  //       matLoad === true
+  //     ) {
+  //       setsystemPower(flatTrace);
+  //       setgenPower(flatTrace);
+  //       setgenVoltage(flatTrace);
+  //       setbatteryVoltage(flatTrace);
+  //       setgeneratorCurrent(flatTrace);
+  //       setbatterycurrentNet(flatTrace);
+  //       setThrottle(flatTrace);
+  //       setSetpoint(flatTrace);
+  //       setRPM(flatTrace);
+  //       setfuelConsumption(flatTrace);
+  //       setMAP(flatTrace);
+  //       setfuelPressure(flatTrace);
+  //       setrectifierTemp(flatTrace);
+  //       setregulatorTemp(flatTrace);
+  //       setstatorTemp(flatTrace);
+  //       setCHT(flatTrace);
+  //       setMAT(flatTrace);
+
+  //     } else if(systempowLoad === false){
+  //       setsystemPower(systemPower)
+  //     }
+  //   };
+  //   onPageLoad();
+  // });
+  //// system power disapearing act
+
+
+  //////////////////////***********************************////////////////////////////////////
+
+  // This is a use effect containing one plot of live data, that switches to our dummy data "flatTrace" which gives the illusion of no plot on the graph. This toggles and returns back to the graph with actual data.
+//   //// Data :GenPower
+//   useLayoutEffect(() => {
+//     if (genpowerChange === true) {
+//       setgenPower(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [genpowerChange, flatTrace]);
+
+//   //// Data: SystemPower
+//   useLayoutEffect(() => {
+//     if (systempowerChange === true) {
+//       setsystemPower(flatTrace);
+//     }
+//   }, [systempowerChange, flatTrace]);
+
+//   //// Data: genVoltage
+//   useLayoutEffect(() => {
+//     if (genvoltageChange === true) {
+//       setgenVoltage(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [genvoltageChange, flatTrace]);
+
+//   //// Data :batteryVoltage
+//   useLayoutEffect(() => {
+//     if (batteryvoltageChange === true) {
+//       setbatteryVoltage(flatTrace);
+//       console.log("data was changed for battery voltage");
+//     }
+//   }, [batteryVoltage, flatTrace, batteryvoltageChange]);
+
+//   //// Data :generator Current
+//   useLayoutEffect(() => {
+//     if (generatorcurrentChange === true) {
+//       setgeneratorCurrent(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [generatorCurrent, flatTrace, generatorcurrentChange]);
+
+//   //// Data :stator temp
+//   useLayoutEffect(() => {
+//     if (statortempChange === true) {
+//       setstatorTemp(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [statorTemp, flatTrace, statortempChange]);
+
+//   //// Data : battery current
+//   useLayoutEffect(() => {
+//     if (batterycurrentChange === true) {
+//       setbatterycurrentNet(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [batterycurrentNet, flatTrace, batterycurrentChange]);
+
+//   //// Data : throttle
+//   useLayoutEffect(() => {
+//     if (throttleChange === true) {
+//       setThrottle(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [throttle, flatTrace, throttleChange]);
+
+//   //// Data : setpoint
+//   useLayoutEffect(() => {
+//     if (setpointChange === true) {
+//       setSetpoint(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [setpoint, flatTrace, setpointChange]);
+
+//   //// Data : RPM
+//   useLayoutEffect(() => {
+//     if (RPMChange === true) {
+//       setRPM(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [RPM, flatTrace, RPMChange]);
+
+//   //// Data : FUEL CONSUMPTION
+//   useLayoutEffect(() => {
+//     if (fuelconsumptionChange === true) {
+//       setfuelConsumption(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [fuelConsumption, flatTrace, fuelconsumptionChange]);
+
+//   //// Data : MAP
+//   useLayoutEffect(() => {
+//     if (mapChange === true) {
+//       setMAP(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [MAP, flatTrace, mapChange]);
+
+//   //// Data : fuel pressure
+//   useLayoutEffect(() => {
+//     if (fuelPressureChange === true) {
+//       setfuelPressure(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [fuelPressure, flatTrace, fuelPressureChange]);
+
+//   //// Data : rectifier temp
+//   useLayoutEffect(() => {
+//     if (rectifierTempChange === true) {
+//       setrectifierTemp(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [rectifierTemp, flatTrace, rectifierTempChange]);
+
+//   //// Data : regulator temp
+//   useLayoutEffect(() => {
+//     if (regulatorTempChange === true) {
+//       setregulatorTemp(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [regulatorTemp, flatTrace, regulatorTempChange]);
+
+//   //// Data : CHT
+//   useLayoutEffect(() => {
+//     if (chtChange === true) {
+//       setCHT(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [CHT, flatTrace, chtChange]);
+
+//   //// Data : MAT
+//   useLayoutEffect(() => {
+//     if (matChange === true) {
+//       setMAT(flatTrace);
+//       // console.log("data was changed");
+//     }
+//   }, [MAT, flatTrace, matChange]);
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////************************************************* ALL FUNCTIONS FOR OPTIONS ONE THROUGH 4, STARTING WITH OPTION 1 FUNCTIONS SHOWING EACH ENGINE STATUS ,STARTING AT SWITCH GEN POWER ENDING AT SWITCH MAP *********/
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  //OPTIONS : 1
+
+  ////////////////// This is our generator Power switch function for switching true and false values, i.e. toggle.
+
+
+  ////////////////////////// STATE AND FUNCTION AREA FOR TOGGLING SHOW OPTIONS ON GRAPHS /////////////////////
+
+  //////disabled button//////////
+
+
+  return (
+    <div className="plotbody">
+    
+      <Plot
+        data={[
+         b1c0
+        ]}
+        layout={{
+          title: "Power Management Unit Data Chart",
+          barmode: 'group'
+        }}
+      />
+
+      <br></br>
+    </div>
+  );
+};
+
+export default BatteryGraph;

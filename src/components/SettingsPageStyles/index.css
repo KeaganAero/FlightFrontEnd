@@ -1,0 +1,278 @@
+
+
+.carousel {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.carousel-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  
+}
+
+
+.converter-box-settings{
+  position: relative;
+  right: 90.5em;
+  top:7.5em;
+  width: 200px;
+  background-color: white;
+  color:black;
+  border: 1px solid red;
+  height: 25px;
+  font-weight: bold;
+}
+.unit-button-settings{
+  position: relative;
+  right:102em;
+  height: 60px;
+  top: 10em;
+  
+  background-color: white;
+}
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.data-indicators{
+  height: 31vh;
+  background-color: rgb(19, 18, 18);
+}
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+/* ****************** generator box container ************** */
+.container-settings {
+  display: flex;
+  grid-gap: 5px;
+  background-color: #121212;
+}
+.settings-box {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  height: 60vh;
+  border: 5px solid rgba(255, 255, 255, 0.89);
+  color: white;
+}
+
+.mode-icon {
+  color: white;
+  background: none;
+  font-size: 30px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.mode-icon:hover {
+  rotate: 180deg;
+  transition: 2s;
+}
+
+#sun-icon {
+  color: gold;
+}
+
+#moon-icon {
+  color: rgb(39, 89, 180);
+}
+
+.icon-container {
+ display: flex;
+ flex-direction: row;
+ height: 35px;
+ gap: 10px;
+}
+
+.paragraph-settings-boxes {
+  font-size: 15px;
+ 
+}
+
+.liveDataLight{
+  border: 1.5px solid rgb(0, 0, 0);
+  /* -webkit-box-shadow:0px 0px 105px 45px rgba(255, 255, 255, 0.9);
+    -moz-box-shadow: 0px 0px 105px 45px rgba(231, 231, 231, 0.9);
+    box-shadow: 0px 0px 105px 45px rgba(255, 255, 255, 0.9); */
+  width: 10px;
+  height: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  position: relative;
+  bottom:39em;
+  left:10em;
+}
+@keyframes LiveData {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.statistics{
+ 
+
+  text-align: center;
+  font-family: sans-serif;
+  font-style: italic;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+ background-color: #121212;
+color:white;
+  position: relative;
+ right: 87em;
+top:20em;
+  list-style-type: none;
+}
+#dataLiveStream{
+  white-space: nowrap;
+  color:red;
+  position: relative;
+  right: 43em;
+  bottom: 40em;
+  
+}
+.stats-style {
+  color: white;
+}
+
+/* 88888888888888888888888888888 */
+
+
+
+/* 88888888888888888888888 */
+/* .title-style{
+  
+} */
+
+.settings-button{
+  width: 100px;
+  border:2px solid gold;
+  cursor: pointer;
+  color: white;
+  background-color: red;
+  position: relative;
+  top:100px;
+  left: 40em;
+margin-bottom: 10px;
+}
+#generator-text-box{
+  width: 50px;
+}
+.form-box {
+  opacity: none;
+  background-color: white;
+  width: 50px;
+  height: 20px;
+  bottom: 0%;
+  position: relative;
+  transition: translateY(-50%);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+  font-style: italic;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  background: linear-gradient(#911313, #eaeaea, #262626);
+  background-clip: text; /* Add the standard property value for compatibility */
+  -webkit-background-clip: text; /* Add vendor-prefixed property for older browsers */
+  color: transparent;
+}
+
+textarea {
+  resize: none;
+}
+
+.tab-structure {
+  width: 100%;
+}
+
+.panel-style {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* border: 2px solid white; */
+  padding: 10px;
+  width: 130px;
+  position: relative;
+  left: 65px;
+}
+
+#generator-pmu-panel{
+  width: 223px;
+  position: relative;
+  left: 21px;
+}
+#test-1 {
+  color: red;
+}
+
+#test-2 {
+  color: #39ff14;
+}
+
+#autopilot-box {
+  width: 250px;
+}
+
+#gui-box {
+  width: 250px;
+}
+
+/* ##################### glowing button **************** */
+
+
+
+.glowing-btn {
+  position: relative;
+  color: var(--glow-color);
+  cursor: pointer;
+  padding: 0.35em 1em;
+  border:1px solid red;
+  border-radius: 0.45em;
+  background: none;
+  perspective: 2em;
+  font-family: "Raleway", sans-serif;
+  font-size: 1em;
+  width: 150px;
+  font-weight: 900;
+  letter-spacing: 1em;
+  background-color: white;
+}
+

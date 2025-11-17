@@ -1,0 +1,200 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "../Battery-Tab-Styles/batteryStyles.css";
+const B1c0 = () => {
+  const [zeroRead, setZeroRead] = useState(true);
+  const[zeroPointFiveRead,setZeroPointFiveRead]=useState(false) 
+  const [oneRead, setOneRead] = useState(false);
+  const[onePointFiveRead,setOnePointFiveRead]=useState(false) //new : not started
+  const [twoRead, setTwoRead] = useState(false);
+  const[twoPointFiveRead,setTwoPointFiveRead]=useState(false)//new : not started
+  const [threeRead, setThreeRead] = useState(false);
+  const[threePointFiveRead,setThreePointFiveRead]=useState(false) //new : current test
+  const [fourRead, setFourRead] = useState(false);
+  const[fourPointFiveRead,setFourPointFiveRead]=useState(false) //new : not started
+
+const[cellData,setCellData]=useState([])
+
+useEffect(() => {
+    const batteryCellData = async () =>{
+const res = await axios.get('http://localhost:3002');
+const cellData = res.data;
+var isValid = cellData[0].hasOwnProperty('b1c0')
+if(isValid){
+setCellData(cellData)
+}
+    };
+    batteryCellData();
+});
+
+
+  /////// FILL ITEM //////////////////////
+
+ useEffect(() =>{
+    const batteryTest = () =>{
+        cellData.map((value) => {
+          if(value.b1c0<=0){
+            setZeroRead(true)
+          }
+          else if(value.b1c0<=0.5){
+            setZeroRead(false)
+            setOneRead(false)
+            setTwoRead(false)
+            setThreeRead(false)
+            setFourRead(false)
+            setFourPointFiveRead(false)
+            setZeroPointFiveRead(true)
+          }
+           else if(value.b1c0<=1.00){
+                setZeroRead(false)
+            setTwoRead(false)
+            setThreeRead(false)
+            setFourRead(false)
+            setOneRead(true)
+        } else if(value.b1c0 <=  2.00){
+            setZeroRead(false)
+            setOneRead(false)
+            setThreeRead(false)
+            setFourRead(false)
+            setTwoRead(true)
+        } else if(value.b1c0<= 3.00){
+            setZeroRead(false)
+            setOneRead(false)
+            setTwoRead(false)
+            setFourRead(false)
+            setThreeRead(true)
+        } else if(value.b1c0 <= 3.5){
+          setZeroRead(false)
+          setZeroPointFiveRead(false)
+          setOneRead(false)
+          setOnePointFiveRead(false)
+          setTwoRead(false)
+          setTwoPointFiveRead(false)
+          setThreeRead(false)
+          setFourRead(false)
+          setFourPointFiveRead(false)
+          setThreePointFiveRead(true)
+          
+        }
+        else if(value.b1c0<=4.00){
+            setZeroRead(false)
+            setOneRead(false)
+            setTwoRead(false)
+            setThreeRead(false)
+            setFourRead(true)
+        }
+        
+        // console.log(value.b1c0,zeroRead,oneRead,twoRead,threeRead,fourRead)
+    })
+      
+}
+batteryTest()
+
+ })
+
+ const[cellOne,setCellOne]=useState()
+// useEffect(() => {
+//     const testCell = () => {
+//         cellData.map((value) => {
+//             if(value.b1c0===2){
+//                 console.log("Past the test")
+//             }
+//             console.log(value.b1c0,zeroRead)
+//         })
+//       testCell()
+        
+//     }
+// })
+
+
+
+
+
+        
+
+  /////////////////////////////////////////////
+
+cellData.map((value)=>{
+  var root = document.documentElement;
+
+
+  root.style.setProperty('--height', (value.b1c0*10.) + "px");
+
+})
+
+
+ 
+  
+  return (
+    <div className="wrapper">
+
+
+
+      {/******************** container level 4 **********/}
+     {zeroRead?<div className="cylinder-zero">
+         
+         <div className="cylinder-top"></div>
+         <div className="cylinder-mid">
+           <div className="cylinder-scale" id="four-point-five"></div>
+           <div className="cylinder-scale" id="four-point-two"></div>
+           <div className="cylinder-scale" id="four">
+             5
+           </div>
+           <div className="cylinder-scale" id="three-point-five"></div>
+           <div className="cylinder-scale" id="three">
+             4
+           </div>
+           <div className="cylinder-scale" id="two-point-five"></div>
+           <div className="cylinder-scale" id="two">
+             3
+           </div>
+           <div className="cylinder-scale" id="one-point-five"></div>
+           <div className="cylinder-scale" id="one">
+             2
+           </div>
+           <div className="cylinder-scale" id="zero-point-five"></div>
+           <div className="cylinder-scale" id="zero">
+             1
+           </div>
+         </div>
+         <div className="cylinder-bottom"></div>
+         <div className="liquid-voltage-0"></div>
+       </div> :
+      // if value is a number greater than 0 show this container with dynamic data
+       <div className="cylinder-zero">
+         
+         <div className="cylinder-top"></div>
+         <div className="cylinder-mid">
+           <div className="cylinder-scale" id="four-point-five"></div>
+           <div className="cylinder-scale" id="four-point-two"></div>
+           <div className="cylinder-scale" id="four">
+             5
+           </div>
+           <div className="cylinder-scale" id="three-point-five"></div>
+           <div className="cylinder-scale" id="three">
+             4
+           </div>
+           <div className="cylinder-scale" id="two-point-five"></div>
+           <div className="cylinder-scale" id="two">
+             3
+           </div>
+           <div className="cylinder-scale" id="one-point-five"></div>
+           <div className="cylinder-scale" id="one">
+             2
+           </div>
+           <div className="cylinder-scale" id="zero-point-five"></div>
+           <div className="cylinder-scale" id="zero">
+             1
+           </div>
+         </div>
+         <div className="cylinder-bottom"></div>
+         <div className="liquid-voltage-4"></div>
+       </div>}
+        
+
+  
+    </div>
+    
+  );
+};
+export default B1c0;

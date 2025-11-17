@@ -1,0 +1,76 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "../Data-Logging-Styles/datalog.css";
+import { ListItemSecondaryAction } from "@mui/material";
+
+const LiveLog = () => {
+  const [logs, setLogs] = useState([]);
+  const [messages, setMessages] = useState([]);
+  useEffect(() => {
+    const logging = async () => {
+      const res = await axios.get("http://localhost:3002");
+      const logs = res.data;
+      //   console.log(logs);
+      var isValid = logs[0].hasOwnProperty("msg");
+
+      if (isValid) {
+        setLogs(logs);
+        console.log(logs[0], "************ live log *****************");
+        setTimeout(function () {
+          addItem(logs[0].msg);
+        }, 9000);
+      }
+      //extract message string from object with messages
+      // set messages to whatever messages we extracted from the object
+    };
+    logging();
+  });
+
+  const addItem = (msg) => {
+    setMessages((oldArray) => [...oldArray, msg]);
+  };
+  //   console.log(messages, "agaegrreeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+  return (
+    <div className="box-container">
+      <ul className="log-box">
+        {messages.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default LiveLog;
+   const fillItem = () => {
+//     if (zeroRead === true) {
+//       setZeroRead(false);
+//       setOneRead(true);
+//     }
+//   };
+
+//   const fillStepTwo = () => {
+//     if (oneRead === true) {
+//       setOneRead(false);
+//       setTwoRead(true);
+//     }
+//   };
+
+//   const fillStepThree = () => {
+//     if (twoRead === true) {
+//       setTwoRead(false);
+//       setThreeRead(true);
+//     }
+//   };
+
+//   const fillStepFour = () => {
+//     if (threeRead === true) {
+//       setThreeRead(false);
+//       setFourRead(true);
+//     }
+//   };
+
+//   setTimeout(fillItem, 1000);
+//   setTimeout(fillStepTwo, 1000);
+//   setTimeout(fillStepThree, 1000);
+//   setTimeout(fillStepFour, 1000);

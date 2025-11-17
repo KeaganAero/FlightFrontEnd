@@ -1,0 +1,409 @@
+.liquid-voltage-8{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightEight);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorEight);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorEight) 5%, #333 90%);
+ 
+}
+
+.liquid-voltage-9{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightNine);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorNine);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorNine) 5%, #333 90%);
+ 
+}
+
+.liquid-voltage-10{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightTen);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorTen);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorTen) 5%, #333 90%);
+ 
+}
+.liquid-voltage-11{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightEEleven);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorEEleven);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorEleven) 5%, #333 90%);
+ 
+}
+.liquid-voltage-12{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightTwelve);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorTwelve);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorTwelve) 5%, #333 90%);
+ 
+}
+.liquid-voltage-13{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightThirteen);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorThirteen);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorThirteen) 5%, #333 90%);
+ 
+}
+.liquid-voltage-14{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightFourteen);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorFourteen);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorFourteen) 5%, #333 90%);
+ 
+}
+.liquid-voltage-15{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightFifteen);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorFifteen);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorFifteen) 5%, #333 90%);
+ 
+}
+.liquid-voltage-16{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightSixteen);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorSixteen);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorSixteen) 5%, #333 90%);
+ 
+}
+
+.liquid-voltage-17{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightSeventeen);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorSeventeen);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorSeventeen) 5%, #333 90%);
+ 
+}
+
+.liquid-voltage-18{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightEighteen);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorEighteen);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorEighteen) 5%, #333 90%);
+ 
+}
+.liquid-voltage-19{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightNineteen);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorNineteen);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorNineteen) 5%, #333 90%);
+ 
+}
+
+.liquid-voltage-20{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightTwenty);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorTwenty);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorTwenty) 5%, #333 90%);
+ 
+}
+.liquid-voltage-21{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightTwentyOne);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorTwentyOne);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorTwentyOne) 5%, #333 90%);
+ 
+}
+.liquid-voltage-22{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightTwentyTwo);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorTwentyTwo);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorTwentyTwo) 5%, #333 90%);
+ 
+}
+
+.liquid-voltage-23{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightTwentyThree);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorTwentyThree);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorTwentyThree) 5%, #333 90%);
+ 
+}
+
+.liquid-voltage-24{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightTwentyFour);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorTwentyFour);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorTwentyFour) 5%, #333 90%);
+ 
+}
+
+.liquid-voltage-25{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightTwentyFive);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorTwentyFive);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorTwentyFive) 5%, #333 90%);
+ 
+}
+
+.liquid-voltage-26{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightTwentySix);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorTwentySix);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorTwentySix) 5%, #333 90%);
+ 
+}
+.liquid-voltage-27{
+    position: relative;
+    bottom: 24px;
+    padding-right: 50px;
+    margin-left: 0.5px;
+    /* border: 1px solid aqua; */
+    width: 139px;
+    padding-top: var(--heightTwentySeven);
+    padding-bottom:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: var(--colorTwentySeven);
+    opacity: 0.7;
+ transform:rotatex(180deg);
+ transform-origin: top;
+ background: radial-gradient(circle at 90%,  var(--colorTwentySeven) 5%, #333 90%);
+ 
+}

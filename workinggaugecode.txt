@@ -1,0 +1,68 @@
+import React, { useState, useEffect, useReducer } from "react";
+import axios from "axios";
+import Speedometer, {
+  Background,
+  Arc,
+  Needle,
+  Progress,
+  Marks,
+  Indicator,
+} from "react-speedometer";
+
+const Serialdata = () => {
+  useEffect(() => {
+    const incomingReading = async () => {
+      const res = await axios.get("http://localhost:3001");
+      const readings = res.data;
+      setReadings(readings);
+      console.log(res);
+    };
+    incomingReading();
+  });
+
+  const [readings, setReadings] = useState([]);
+
+  
+
+  return (
+    <div>
+      <header className="App-header">
+        HFENGINE <br /> DASHBOARD
+      </header>
+
+     { readings.map((value) => (
+    <Speedometer value={value.timeElapsed} key={value.id}>
+     
+     
+      <Background />
+        <Arc />
+        <Needle />
+        <Progress />
+        <Marks />
+        <Indicator />
+    </Speedometer>
+  ))}
+      <Speedometer value={0.0} fontFamily="squada-one">
+        <Background />
+        <Arc />
+        <Needle />
+        <Progress />
+        <Marks />
+        <Indicator />
+      </Speedometer>
+
+      <Speedometer value={0} fontFamily="squada-one">
+        <Background />
+        <Arc />
+        <Needle />
+        <Progress />
+        <Marks />
+        <Indicator />
+      </Speedometer>
+
+    
+    </div>
+  );
+};
+
+export default Serialdata;

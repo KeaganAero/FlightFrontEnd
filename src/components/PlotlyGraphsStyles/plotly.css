@@ -1,0 +1,141 @@
+.plotbody {
+  margin: 0;
+  background-color: none;
+  padding: 0;
+}
+
+.menubox {
+  border: 2px solid red;
+  width: 50px;
+}
+
+/* .graph-1-box-1-scrollbox{
+  border:2px solid red;
+  width: 160px;
+  color:black;
+  background-color:white;
+  max-height: 30px;
+} */
+
+.testandwin {
+  overflow: auto;
+  display: flex;
+  /* border: 2px solid red; */
+  flex-direction: column;
+  max-width: 160px;
+  overflow-x: hidden;
+}
+
+#demo-radio-buttons-group-label {
+  border: 2px solid rgb(156, 5, 5);
+  background-color: rgb(87, 67, 67);
+  max-width: 160px;
+  background-color: rgb(18, 38, 65);
+  pointer-events: none;
+  color: white;
+}
+
+#cleargraph{
+  border: 2px solid rgb(156, 5, 5);
+  background-color: rgb(87, 67, 67);
+  max-width: 160px;
+  background-color: rgb(34, 8, 4);
+  pointer-events: all;
+  color: rgb(255, 238, 0);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.graph-1-box-1-scrollbox {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  position:fixed;
+  z-index: 9000;
+}
+
+
+.graphOneplotOneinnerbox {
+  background-color: rgb(218, 218, 218);
+  color: darkblue;
+  height: 30em;
+
+  overflow-y: scroll;
+}
+
+
+.arrow-up-plot {
+  float: right;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.plotbody{
+
+  position: relative;
+  left: 50em;
+  
+}
+
+.graphs-container{
+position: relative;
+right: 50em;
+
+}
+
+#graph-3{padding-left: 50px;}
+
+#graph-4{padding-left: 50px;}
+
+
+/* GRAPH ONE COMPONENT */
+
+.genpower{
+  color:orange;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .graphs-container{
+    position: relative;
+    right: 2em;
+    
+    }
+
+    .plotbody{
+      position: relative;
+      left: 30px;
+
+    }
+    
+.testandwin {
+  overflow: auto;
+  display: flex;
+  /* border: 2px solid red; */
+  flex-direction: column;
+  max-width: 100px;
+  overflow-x: hidden;
+
+}
+
+    
+}
+
+@media only screen and (max-width: 1140px) {
+  .graph-1-box-1-scrollbox {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+ left:180px;
+  }
+
+  .plotbody{
+
+    position: relative;
+    left: 10em;
+    
+  }
+  
+
+  
+}
